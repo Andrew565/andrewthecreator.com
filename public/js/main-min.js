@@ -1,0 +1,1 @@
+!function(){var o=Array.prototype.slice.call(document.querySelectorAll("aside ul a"));console.log(o),o.forEach(function(c){c.addEventListener("click",function c(){o.forEach(function(o){o.classList.remove("active")}),this.classList.add("active")}.bind(c),!0)}),""===window.location.hash&&(window.location.hash="home")}();
