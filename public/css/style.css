@@ -137,9 +137,9 @@ body {
         border-radius: 1em;
         padding: 0.5em 1em;
         color: #38B2FF; }
-    body section#talks {
+    body section#talks, body section#resume {
       align-items: flex-start; }
-      body section#talks article {
+      body section#talks article, body section#resume article {
         width: 100%; }
-      body section#talks .content {
+      body section#talks .content, body section#resume .content {
         width: 100%; }
