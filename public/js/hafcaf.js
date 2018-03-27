@@ -12,11 +12,17 @@
       this.routes[id] = options;
 
       // Add the route to the navigation menu if linkText provided
-      if (options.linkText) {
+      if (options.linkHTML) {
         var newEl = document.createElement("li");
         var newLink = document.createElement("a");
         newLink.href = "#" + id;
-        newLink.innerHTML = options.linkText;
+        newLink.innerHTML = options.linkHTML;
+
+        // Add classes to the link, if present
+        if (options.className) {
+          newLink.classList.add(options.className);
+        }
+
         newEl.appendChild(newLink);
         document.getElementById("nav-list").appendChild(newEl);
       }
@@ -31,12 +37,20 @@
     },
     default: "home",
     routeChange: function() {
+      // Get the new hash, which is the route to be rendered
       hafcaf.routeID = location.hash.slice(1);
+
+      // From the routes known to hafcaf, pick out the matching one
       hafcaf.route = hafcaf.routes[hafcaf.routeID];
+
+      // From the document, find the containing element for the route to be rendered
       hafcaf.routeEl = document.getElementById(hafcaf.routeID);
+
+      // If the route was found and the route has a "rendered" callback, call it
       if (hafcaf.route && hafcaf.route.rendered) hafcaf.route.rendered();
     },
     init: function() {
+      // Add a global listener for 'hashchange', since this framework relies on hash-based routing
       window.addEventListener("hashchange", function() {
         hafcaf.routeChange();
       });
@@ -50,7 +64,9 @@
     }
   };
 
+  // Add hafcaf to the window object so it becomes globally accessible
   window.hafcaf = hafcaf;
 })();
 
+// Once the script has instantiated hafcaf, initialize it
 hafcaf.init();

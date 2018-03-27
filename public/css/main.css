@@ -1,0 +1,11 @@
+.heroImage {
+  background: url("../images/hustle-hero.jpg") center center;
+  height: 60vh;
+}
+
+.heroImage__img {
+  height: 100%;
+  width: 100%;
+  padding: 4em 16em;
+  background: rgba(125, 125, 255, 0.2);
+}
