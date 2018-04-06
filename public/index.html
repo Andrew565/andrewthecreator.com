@@ -16,21 +16,6 @@
           Andrew the Creator
         </a>
       </li>
-      <li class="navbar-item">
-        <a href="#case-studies" class="nav-link">
-          Case Studies
-        </a>
-      </li>
-      <li class="navbar-item">
-        <a href="#talks" class="nav-link">
-          Talks
-        </a>
-      </li>
-      <li class="navbar-item">
-        <a href="#art" class="nav-link">
-          Art and Comics
-        </a>
-      </li>
     </ul>
   </nav>
   <main id="main-container" role="main" class="container">
@@ -66,25 +51,28 @@
       return `<a href="#${linkName}" class="nav-link">${label}</a>`;
     }
 
-    function createPage(pageObj) {
-      fetch(`pages/${pageObj.linkName}.html`)
+    async function createPage(pageObj) {
+      let page;
+      await fetch(`pages/${pageObj.linkName}.html`)
         .then(res => res.text())
         .then(innerHTML => {
-          const page = {
+          page = {
             linkHTML: getLinkHTML(pageObj),
             className: "navbar-item",
             innerHTML
           };
-
-          hafcaf.addRoute(pageObj.linkName, page);
         });
+      hafcaf.addRoute(pageObj.linkName, page);
     }
 
     const pages = [
-      { linkName: 'resume', label: "My Resumé" }
+      { linkName: 'resume', label: "My Resumé" },
+      { linkName: 'games', label: "Games" }
     ];
 
     pages.forEach(pageObj => createPage(pageObj));
+
+    // hafcaf.init();
   </script>
 </body>
 

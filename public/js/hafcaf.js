@@ -34,6 +34,9 @@
         newEl.innerHTML = options.innerHTML;
         document.getElementById("main-container").appendChild(newEl);
       }
+
+      // Call routeChange after creating a route to ensure new routes get loaded if needed
+      hafcaf.routeChange();
     },
     default: "home",
     routeChange: function() {
