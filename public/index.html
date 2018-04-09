@@ -46,34 +46,7 @@
     </section>
   </main>
   <script src="js/hafcaf.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    function getLinkHTML({ linkName, label = linkName }) {
-      return `<a href="#${linkName}" class="nav-link">${label}</a>`;
-    }
-
-    async function createPage(pageObj) {
-      let page;
-      await fetch(`pages/${pageObj.linkName}.html`)
-        .then(res => res.text())
-        .then(innerHTML => {
-          page = {
-            linkHTML: getLinkHTML(pageObj),
-            className: "navbar-item",
-            innerHTML
-          };
-        });
-      hafcaf.addRoute(pageObj.linkName, page);
-    }
-
-    const pages = [
-      { linkName: 'resume', label: "My Resumé" },
-      { linkName: 'games', label: "Games" }
-    ];
-
-    pages.forEach(pageObj => createPage(pageObj));
-
-    // hafcaf.init();
-  </script>
+  <script src="js/main.js" type="text/javascript"></script>
 </body>
 
 </html>
