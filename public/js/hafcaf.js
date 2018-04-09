@@ -62,9 +62,7 @@
       const route = this.routes[id];
 
       if (!route) {
-        console.error(
-          'A route with the ID "' + id + '" does not exist, cannot update it.'
-        );
+        console.error('A route with the ID "' + id + '" does not exist, cannot update it.');
         return false;
       }
 
@@ -95,6 +93,9 @@
 
       // From the routes known to hafcaf, pick out the matching one
       const route = this.routes[routeID];
+
+      // If route not found, redirect to default page
+      if (!route) window.location.hash = this.default;
 
       // If the route was found and the route has a "onRender" callback, call it
       if (route && route.onRender) route.onRender();
