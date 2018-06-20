@@ -2,6 +2,7 @@
   background: no-repeat center url("../images/hustle-hero.jpg");
   background-size: cover;
   height: 60vh;
+  margin-bottom: 1em;
 }
 
 @media screen and (max-width: 576px) {
@@ -13,4 +14,8 @@
 .heroImage__img {
   height: 60%;
   width: 60%;
+}
+
+section {
+  margin-top: 1em;
 }
