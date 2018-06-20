@@ -22,3 +22,8 @@ pages.forEach(page => {
   hafcaf.addRoute(page);
   fetchPage(page).then(page => hafcaf.updateRoute(page));
 });
+
+// Event listener for nav click events
+document.getElementById("nav-list").addEventListener("click", () => {
+  document.getElementById("navListContainer").classList.remove("show");
+});

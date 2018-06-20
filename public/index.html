@@ -2,6 +2,8 @@
 
 <head>
   <title>Andrew the Creator - A Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
   <link rel="stylesheet" href="css/hafcaf.css">
@@ -9,19 +11,24 @@
 </head>
 
 <body>
-  <nav role="navigation" class="navbar sticky-top navbar-expand navbar-light bg-light">
-    <ul id="nav-list" class="navbar-nav mr-auto">
-      <li class="navbar-item active">
-        <a href="#home" class="navbar-brand">
-          Andrew the Creator
-        </a>
-      </li>
-      <li class="navbar-item" style="order: 99">
-        <a class="nav-link" href="mailto:talk@andrewthecreator.com?subject=More Info on Andrew The Creator&body=Hi Andrew, I saw your awesome site, and I wanted to talk to you about something.">
-          Contact Me
-        </a>
-      </li>
-    </ul>
+  <nav role="navigation" class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <a href="#home" class="navbar-brand">
+      Andrew the Creator
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navListContainer" aria-controls="navListContainer"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navListContainer" class="collapse navbar-collapse">
+      <ul id="nav-list" class="navbar-nav mr-auto">
+        <li class="navbar-item" style="order: 99">
+          <a class="nav-link" href="mailto:talk@andrewthecreator.com?subject=More Info on Andrew The Creator&body=Hi Andrew, I saw your awesome site, and I wanted to talk to you about something.">
+            Contact Me
+          </a>
+        </li>
+      </ul>
+    </div>
   </nav>
   <main id="main-container" role="main" class="container">
     <section id="home">
@@ -50,6 +57,10 @@
       </article>
     </section>
   </main>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
   <script src="js/hafcaf.js" type="text/javascript"></script>
   <script src="js/main.js" type="text/javascript"></script>
 </body>
