@@ -1,11 +1,16 @@
 .heroImage {
-  background: url("../images/hustle-hero.jpg") center center;
+  background: no-repeat center url("../images/hustle-hero.jpg");
+  background-size: cover;
   height: 60vh;
 }
 
+@media screen and (max-width: 576px) {
+  .heroImage {
+    height: 30vh;
+  }
+}
+
 .heroImage__img {
-  height: 100%;
-  width: 100%;
-  padding: 4em 16em;
-  background: rgba(125, 125, 255, 0.2);
+  height: 60%;
+  width: 60%;
 }

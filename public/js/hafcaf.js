@@ -1,17 +1,28 @@
+var clog = function(message, obj) {
+  if (obj === undefined) obj = "";
+  console.log(message, obj);
+  return obj;
+};
+
+var hafcaf = null;
+
 (function() {
-  var hafcaf = {
-    routes: {},
+  var hafcafLibrary = {
+    routes: [],
     config: {
+      activeClass: "active", // By default, will add the 'active' class to the link for the current route
       linkClass: null, // Class(es) to add to link 'a' tags
       linkTag: "li", // Which tag to use for link containers
       linkTagClass: null, // Class(es) to add to linkTag tags
       loadingHTML: "<p>Loading...</p>", // Default content while a page is loading
-      mainID: "main-container", // Where pages should be added
-      navID: "nav-list", // Where link tags should be added
+      mainID: "main-container", // ID of the element where pages should be added
+      navID: "nav-list", // ID of the element where link tags should be added
       pageClass: null, // Class(es) to add to page containers
       pageTag: "div" // Which tag to use for page containers
     },
-    addRoute: function(id, options) {
+    addRoute: function(options) {
+      let id = options.id;
+
       // Check if a route already exists with the given ID
       if (this.routes[id] !== undefined) {
         console.error('A route with the ID "' + id + '" already exists.');
@@ -58,7 +69,8 @@
       document.getElementById(this.config.mainID).appendChild(newEl);
     },
     default: "home",
-    updateRoute: function(id, options) {
+    updateRoute: function(options) {
+      let id = options.id;
       const route = this.routes[id];
 
       if (!route) {
@@ -86,6 +98,8 @@
 
       // If this route has an onRender function, call it
       if (route.onRender) route.onRender();
+
+      this.routeChange();
     },
     routeChange: function() {
       // Get the new hash, which is the route to be rendered
@@ -94,13 +108,27 @@
       // From the routes known to hafcaf, pick out the matching one
       const route = this.routes[routeID];
 
-      // If route not found, redirect to default page
-      if (!route) window.location.hash = this.default;
+      // If there are routes and the desired route is not found, redirect to default page
+      if (this.routes.length > 0 && !route) window.location.hash = this.default;
 
-      // If the route was found and the route has a "onRender" callback, call it
-      if (route && route.onRender) route.onRender();
+      if (route) {
+        // Remove any existing active classes upon route changing
+        const { activeClass } = this.config;
+        for (var el of document.getElementsByClassName(activeClass)) {
+          el.classList.remove(activeClass);
+        }
+
+        // Next, find the new route's 'a' tag by looking up the link's href
+        const linkEl = document.querySelector("a[href='#" + routeID + "']");
+
+        // Make it active
+        linkEl.classList.add(activeClass);
+
+        // If the route was found and the route has a "onRender" callback, call it
+        if (route.onRender) route.onRender();
+      }
     },
-    init: function(config) {
+    init(config) {
       if (config) this.config = config;
 
       // Add a global listener for 'hashchange', since this framework relies on hash-based routing
@@ -118,8 +146,8 @@
   };
 
   // Add hafcaf to the window object so it becomes globally accessible
-  window.hafcaf = hafcaf;
+  hafcaf = hafcafLibrary;
 })();
 
 // Once the script has instantiated hafcaf, initialize it
-hafcaf.init();
+hafcaf && hafcaf.init();
