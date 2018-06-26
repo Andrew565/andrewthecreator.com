@@ -12,9 +12,10 @@ hafcaf.config.linkTagClass = "navbar-item";
 
 const pages = [
   { id: "resume", linkLabel: "My Resumé" },
-  { id: "games", linkLabel: "Games" },
+  { id: "code", linkLabel: "Code" },
   { id: "case-studies", linkLabel: "Case Studies" },
   { id: "talks", linkLabel: "Talks" },
+  { id: "games", linkLabel: "Games" },
   { id: "art", linkLabel: "Art" }
 ];
 
