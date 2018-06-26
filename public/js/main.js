@@ -7,9 +7,7 @@ function fetchPage(pageObj) {
 }
 
 // Hafcaf configurations to support bootstrap
-// @ts-ignore
 hafcaf.config.linkClass = "nav-link";
-// @ts-ignore
 hafcaf.config.linkTagClass = "navbar-item";
 
 const pages = [
@@ -21,9 +19,7 @@ const pages = [
 ];
 
 pages.forEach(page => {
-  // @ts-ignore
   hafcaf.addRoute(page);
-  // @ts-ignore
   fetchPage(page).then(page => hafcaf.updateRoute(page));
 });
 
