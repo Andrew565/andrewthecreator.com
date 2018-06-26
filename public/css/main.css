@@ -1,3 +1,8 @@
+body {
+  background: linear-gradient(to bottom, white, white 80%, rgb(218, 255, 255) 100%);
+  text-align: justify;
+}
+
 .heroImage {
   background: no-repeat center url("../images/hustle-hero.jpg");
   background-size: cover;
@@ -18,4 +23,11 @@
 
 section {
   margin-top: 1em;
+}
+
+@media screen and (min-width: 576px) {
+  .two-columns {
+    column-count: 2;
+    display: block;
+  }
 }
