@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Fetches page contents from the 'pages' directory
 function fetchPage(pageObj) {
   // lookup relative to the home page the page whose name matches the pageObj id
