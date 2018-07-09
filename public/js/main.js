@@ -7,24 +7,22 @@ function fetchPage(pageObj) {
 }
 
 // Hafcaf configurations to support bootstrap
-hafcaf.config.linkClass = "nav-link";
-hafcaf.config.linkTagClass = "navbar-item";
+hafcaf.config.linkClass = "";
+hafcaf.config.linkTagClass = "tile";
+hafcaf.config.navID = "menu";
 
 const pages = [
-  { id: "resume", linkLabel: "My Resumé" },
-  { id: "code", linkLabel: "Code" },
-  { id: "case-studies", linkLabel: "Case Studies" },
-  { id: "talks", linkLabel: "Talks" },
-  { id: "games", linkLabel: "Games" },
-  { id: "art", linkLabel: "Art" }
+  { id: "about-me", linkLabel: "<i class='fas fa-address-card'></i>About Me" },
+  { id: "resume", linkLabel: "<i class='far fa-file-alt'></i>My Resumé" },
+  { id: "code", linkLabel: "<i class='fas fa-code'></i>Code" },
+  { id: "case-studies", linkLabel: "<i class='fas fa-glasses'></i>Case Studies" },
+  { id: "articles", linkLabel: "<i class='fas fa-file-invoice'></i>Articles" },
+  { id: "talks", linkLabel: "<i class='fas fa-microphone-alt'></i>Talks" },
+  { id: "games", linkLabel: "<i class='fas fa-dice'></i>Games" },
+  { id: "art", linkLabel: "<i class='fas fa-palette'></i>Art" }
 ];
 
 pages.forEach(page => {
   hafcaf.addRoute(page);
   fetchPage(page).then(page => hafcaf.updateRoute(page));
-});
-
-// Event listener for nav click events
-document.getElementById("nav-list").addEventListener("click", () => {
-  document.getElementById("navListContainer").classList.remove("show");
 });

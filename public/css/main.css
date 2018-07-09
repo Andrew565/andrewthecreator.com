@@ -1,32 +1,126 @@
+:root {
+  --main-red: #7f0004;
+  --bright-red: #cc0006;
+  --pinkish-red: #ff4c52;
+}
+
+.color--bright-red {
+  color: var(--bright-red);
+}
+
+.color--pinkish-red {
+  color: var(--pinkish-red);
+}
+
 body {
-  background: linear-gradient(to bottom, white, white 80%, rgb(218, 255, 255) 100%);
+  font-family: "Montserrat", sans-serif;
+  padding-top: 2em;
 }
 
-.heroImage {
-  background: no-repeat center url("../images/hustle-hero.jpg");
-  background-size: cover;
-  height: 60vh;
-  margin-bottom: 1em;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
 }
 
-@media screen and (max-width: 576px) {
-  .heroImage {
-    height: 30vh;
-  }
+#home-header {
+  text-decoration: none;
+  color: var(--main-red);
+  margin: 1em;
+  padding-top: 1em;
+  text-align: center;
 }
 
-.heroImage__img {
-  height: 60%;
-  width: 60%;
+#home-header:hover {
+  text-decoration: none;
+  color: var(--pinkish-red);
 }
 
 section {
   margin-top: 1em;
 }
 
+article {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
 @media screen and (min-width: 576px) {
-  .two-columns {
-    column-count: 2;
+  .three-columns {
+    column-count: 3;
     display: block;
   }
+}
+
+.tile-list {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-basis: 8em;
+  width: calc(8em * 4);
+}
+
+@media screen and (max-width: 576px) {
+  .tile-list {
+    width: 100%;
+  }
+}
+
+.tile:nth-of-type(odd) {
+  background: var(--main-red);
+}
+
+.tile:nth-of-type(even) {
+  background: var(--bright-red);
+}
+
+.tile {
+  width: 8em;
+  height: 8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.tile a {
+  text-decoration: none;
+  color: white;
+}
+
+.tile i {
+  display: block;
+  font-size: 2em;
+}
+
+.skills-list {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.skills-list li {
+  margin: 1em;
+}
+
+.skills-list li i {
+  margin-right: 0.5em;
+}
+
+#contact-me {
+  text-decoration: none;
+  color: var(--bright-red);
+}
+
+.vertical-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
