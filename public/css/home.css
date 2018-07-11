@@ -1,4 +1,4 @@
-#home {
+#home:target {
   display: flex;
   flex-direction: column;
   justify-content: center;

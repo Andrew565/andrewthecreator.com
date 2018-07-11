@@ -34,7 +34,7 @@ section {
   margin-top: 2em;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 992px) {
   .three-columns {
     column-count: 3;
     display: block;
@@ -52,7 +52,7 @@ section {
   width: 100%;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 992px) {
   .family-photo {
     float: left;
     max-width: 40%;

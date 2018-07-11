@@ -7,6 +7,26 @@ function fetchPage(pageObj) {
     .then(innerHTML => ({ innerHTML, id: pageObj.id })); // return as an object to be processed by updateRoute
 }
 
+function checkHash() {
+  if (window.location.hash.indexOf("home") === -1) {
+    document.body.classList.remove("menu-open");
+  } else {
+    document.body.classList.add("menu-open");
+  }
+}
+
+// listener for the page load event, check which page was loaded
+document.addEventListener("DOMContentLoaded", checkHash);
+
+// Listener for hashchange, aka page/route change
+window.addEventListener("hashchange", () => {
+  // Check which page/route we're on as to whether or not the menu should be open
+  checkHash();
+
+  // Since we just changed pages, reset the window to the top of the page
+  window.scrollTo(0, 0);
+});
+
 // Hafcaf configurations to support bootstrap
 hafcaf.config.linkClass = "";
 hafcaf.config.linkTagClass = "tile";
