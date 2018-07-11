@@ -78,8 +78,9 @@ section {
 }
 
 .tile {
-  width: 8em;
-  height: 8em;
+  width: 100%;
+  height: auto;
+  padding: 1em 2em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,6 +88,14 @@ section {
   color: white;
   font-weight: bold;
   text-align: center;
+}
+
+@media screen and (min-width: 576px) {
+  .tile {
+    width: 8em;
+    height: 8em;
+    padding: none;
+  }
 }
 
 .tile a {
