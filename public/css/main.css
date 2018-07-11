@@ -17,15 +17,6 @@ body {
   padding-top: 2em;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Playfair Display", serif;
-}
-
 a {
   text-decoration: none;
   color: var(--main-red);
@@ -37,6 +28,7 @@ a:hover {
 }
 
 #home-header {
+  font-family: "Fredericka the Great", cursive;
   margin: 1em;
   padding-top: 1em;
   text-align: center;
@@ -125,4 +117,17 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.family-photo {
+  width: 100%;
+}
+
+@media screen and (min-width: 576px) {
+  .family-photo {
+    float: left;
+    max-width: 40%;
+    margin-right: 1em;
+  }
 }
