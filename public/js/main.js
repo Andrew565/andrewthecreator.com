@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Fetches page contents from the 'pages' directory
 function fetchPage(pageObj) {
   // lookup relative to the home page the page whose name matches the pageObj id
@@ -7,6 +6,7 @@ function fetchPage(pageObj) {
     .then(innerHTML => ({ innerHTML, id: pageObj.id })); // return as an object to be processed by updateRoute
 }
 
+// Check which page/route we're on as to whether or not the menu should be open
 function checkHash() {
   if (window.location.hash.indexOf("home") === -1) {
     document.body.classList.remove("menu-open");
@@ -15,7 +15,7 @@ function checkHash() {
   }
 }
 
-// listener for the page load event, check which page was loaded
+// Listener for the page load event, checks which page was loaded
 document.addEventListener("DOMContentLoaded", checkHash);
 
 // Listener for hashchange, aka page/route change
@@ -32,6 +32,7 @@ hafcaf.config.linkClass = "";
 hafcaf.config.linkTagClass = "tile";
 hafcaf.config.navID = "menu";
 
+// Array of page objects to be fetched and processed by hafcaf
 const pages = [
   { id: "about-me", linkLabel: "<i class='fas fa-address-card'></i>About Me" },
   { id: "resume", linkLabel: "<i class='far fa-file-alt'></i>My Resumé" },
