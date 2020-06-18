@@ -1,0 +1,82 @@
+:root {
+  --color-rose: #e86565;
+}
+
+body {
+  max-width: 80%;
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  letter-spacing: 3px;
+  font-size: 22px;
+  padding-top: 50px;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    width: 500px;
+  }
+}
+
+.heading {
+  text-align: left;
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 1em;
+}
+
+.heading--home {
+  text-align: center;
+}
+
+.linkList {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  -webkit-margin-start: 0;
+  padding-inline-start: 0;
+  padding-left: 0;
+}
+
+.linkList li {
+  height: 60px;
+  width: 300px;
+  margin-bottom: 1em;
+  background-color: var(--color-rose);
+  border: 3px solid var(--color-rose);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.linkList li:hover {
+  border-color: black;
+}
+
+.linkList li:nth-child(even) {
+  border: 3px solid black;
+}
+
+.linkList li:hover {
+  border-color: black;
+}
+
+.linkList li:nth-child(even):hover {
+  border-color: var(--color-rose);
+}
+
+.linkBlock {
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-top: 25px;
+}
